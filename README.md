@@ -1,1 +1,1 @@
-# Calculadora
+Calculadora é um repositório que foi criado para responder o desafio da aula 80 da Universidade XTI (https://www.youtube.com/watch?v=n6rmBP6W7RA&list=PLxQNfKs8YwvGhXHbHtxtoB-tRRv6r3Rlr&index=80). O programa cria uma calculadora com as operações básicas (+ , - , / , *) e um botao para limpar os dados.
