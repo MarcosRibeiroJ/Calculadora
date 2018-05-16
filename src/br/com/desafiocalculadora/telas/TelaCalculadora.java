@@ -1,12 +1,13 @@
 package br.com.desafiocalculadora.telas;
 
+import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
-import br.com.desafiocalculadora.filtros.TeclasPermitidas;
+import br.com.desafiocalculadora.actions.AcaoTeclado;
 import br.com.desafiocalculadora.menu.Menu;
 
 /**
@@ -132,7 +133,9 @@ public class TelaCalculadora {
 		Font fonteEdit = new Font("arial", Font.PLAIN, 50);//fonte
 		edit.setHorizontalAlignment(JTextField.RIGHT);//alinhamento do cursor
 		edit.setFont(fonteEdit);//adiciona fonte
-		edit.setDocument(new TeclasPermitidas());
+		edit.setBackground(Color.WHITE);
+		edit.setEditable(false);
+		edit.addKeyListener(new AcaoTeclado(this.getJTextField()));
 	}
 	
 	public void formataBotoes() {
@@ -159,6 +162,10 @@ public class TelaCalculadora {
 		Font fonteBotao3 = new Font("arial", Font.BOLD, 15);
 		bBack.setFont(fonteBotao3);
 		bClear.setFont(fonteBotao3);
+	}
+	
+	public JTextField getJTextField() {
+		return this.edit;
 	}
 
 }
