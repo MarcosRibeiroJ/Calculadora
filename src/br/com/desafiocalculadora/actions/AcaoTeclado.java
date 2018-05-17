@@ -56,19 +56,20 @@ public class AcaoTeclado implements KeyListener {
 			edit.setText("9");
 		} else if(aux == 1 && e.getKeyCode() == 61 || e.getKeyCode() == 107) {
 			edit.setText("+");
-		} else if(aux == 0 && e.getKeyCode() == 0 || e.getKeyCode() == 111) {
+		} else if(aux == 0 && e.getKeyCode() == KeyEvent.VK_SLASH || e.getKeyCode() == 111 || e.getExtendedKeyCode() == 47) {
 			edit.setText("/");
 		} else if(aux == 1 && up == 56 || e.getKeyCode() == 106) {
 			edit.setText("*");
 		} else if(aux == 0 && e.getKeyCode() == 45 || e.getKeyCode() == 109) {
 			edit.setText("-");
-		} else if(aux == 0 && e.getKeyCode() == 44 || e.getKeyCode() == 110) {
+		} else if(aux == 0 && e.getKeyCode() == 44 || e.getKeyCode() == 110 || e.getExtendedKeyCode() == 46) {
 			edit.setText(",");
 		}
 		
 		
 		System.out.println("Released: " + e.getKeyCode());
 		System.out.println("Released: " + aux + "\n");
+		System.out.println(e.getExtendedKeyCode());
 	}
 
 	@Override
