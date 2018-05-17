@@ -34,35 +34,35 @@ public class AcaoTeclado implements KeyListener {
 	public void keyReleased(KeyEvent e) {
 		if(e.getKeyCode() == 16) {
 			aux = 0;
-		} else if(aux == 0 && e.getKeyCode() == 48) {
+		} else if(aux == 0 && e.getKeyCode() == 48 || e.getKeyCode() == 96) {
 			edit.setText("0");
-		}else if(aux == 0 && e.getKeyCode() == 49) {
+		}else if(aux == 0 && e.getKeyCode() == 49 || e.getKeyCode() == 97) {
 			edit.setText("1");
-		} else if(aux == 0 && e.getKeyCode() == 50) {
+		} else if(aux == 0 && e.getKeyCode() == 50 || e.getKeyCode() == 98) {
 			edit.setText("2");
-		} else if(aux == 0 && e.getKeyCode() == 51) {
+		} else if(aux == 0 && e.getKeyCode() == 51 || e.getKeyCode() == 99) {
 			edit.setText("3");
-		} else if(aux == 0 && e.getKeyCode() == 52) {
+		} else if(aux == 0 && e.getKeyCode() == 52 || e.getKeyCode() == 100) {
 			edit.setText("4");
-		} else if(aux == 0 && e.getKeyCode() == 53) {
+		} else if(aux == 0 && e.getKeyCode() == 53 || e.getKeyCode() == 101) {
 			edit.setText("5");
-		} else if(aux == 0 && e.getKeyCode() == 54) {
+		} else if(aux == 0 && e.getKeyCode() == 54 || e.getKeyCode() == 102) {
 			edit.setText("6");
-		} else if(aux == 0 && e.getKeyCode() == 55) {
+		} else if(aux == 0 && e.getKeyCode() == 55 || e.getKeyCode() == 103) {
 			edit.setText("7");
-		} else if(aux == 0 && e.getKeyCode() == 56) {
+		} else if(aux == 0 && e.getKeyCode() == 56 || e.getKeyCode() == 104) {
 			edit.setText("8");
-		} else if(aux == 0 && e.getKeyCode() == 57) {
+		} else if(aux == 0 && e.getKeyCode() == 57 || e.getKeyCode() == 105) {
 			edit.setText("9");
-		} else if(aux == 1 && e.getKeyCode() == 61) {
+		} else if(aux == 1 && e.getKeyCode() == 61 || e.getKeyCode() == 107) {
 			edit.setText("+");
-		} else if(aux == 0 && e.getKeyCode() == 0) {
+		} else if(aux == 0 && e.getKeyCode() == 0 || e.getKeyCode() == 111) {
 			edit.setText("/");
-		} else if(aux == 1 && up == 56) {
+		} else if(aux == 1 && up == 56 || e.getKeyCode() == 106) {
 			edit.setText("*");
-		} else if(aux == 0 && e.getKeyCode() == 45) {
+		} else if(aux == 0 && e.getKeyCode() == 45 || e.getKeyCode() == 109) {
 			edit.setText("-");
-		} else if(aux == 0 && e.getKeyCode() == 44) {
+		} else if(aux == 0 && e.getKeyCode() == 44 || e.getKeyCode() == 110) {
 			edit.setText(",");
 		}
 		
