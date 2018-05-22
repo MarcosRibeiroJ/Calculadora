@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
+import br.com.desafiocalculadora.actions.AcaoBotoes;
 import br.com.desafiocalculadora.actions.AcaoTeclado;
 import br.com.desafiocalculadora.menu.Menu;
 
@@ -37,6 +38,7 @@ public class TelaCalculadora {
 		adicionaComponentes();//metodo que adiciona os componentes na janela
 		formataEdit();//formata o campo para digitar
 		formataBotoes();//formata o texto dos botoes
+		adicionaAcaoBotoes();
 		//fecharJanela();
 	}
 	
@@ -135,7 +137,7 @@ public class TelaCalculadora {
 		edit.setFont(fonteEdit);//adiciona fonte
 		edit.setBackground(Color.WHITE);
 		edit.setEditable(false);
-		edit.addKeyListener(new AcaoTeclado(this.getJTextField()));
+		edit.addKeyListener(new AcaoTeclado(this.getJTextField()));//adicionando um listener para o teclado e passando como parametro o JTextField
 	}
 	
 	public void formataBotoes() {
@@ -166,6 +168,18 @@ public class TelaCalculadora {
 	
 	public JTextField getJTextField() {
 		return this.edit;
+	}
+	
+	public void adicionaAcaoBotoes() {
+		AcaoBotoes acao = new AcaoBotoes();
+		b7.addActionListener(acao.new AcaoBotao7(this.getJTextField()));
+		b8.addActionListener(acao.new AcaoBotao8(this.getJTextField()));
+		b9.addActionListener(acao.new AcaoBotao9(this.getJTextField()));
+		bDiv.addActionListener(acao.new AcaoBotaoDiv(this.getJTextField()));
+		b4.addActionListener(acao.new AcaoBotao4(this.getJTextField()));
+		b5.addActionListener(acao.new AcaoBotao5(this.getJTextField()));
+		b6.addActionListener(acao.new AcaoBotao6(this.getJTextField()));
+		bMulti.addActionListener(acao.new AcaoBotaoMulti(this.getJTextField()));
 	}
 
 }

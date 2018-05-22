@@ -21,17 +21,19 @@ public class AcaoTeclado implements KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent evt) {
+		//recebendo um valor e armazenando em variavel toda vez que o shift eh pressionado
 		this.up = evt.getKeyCode();
 		if(evt.getKeyCode() == 16) {
 			this.aux = 1;
 		}
 		
-		System.out.println("Pressed: " + evt.getKeyCode());
-		System.out.println("Pressed: " + aux + "\n");
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e) {
+		//verificando se o shift ja foi liberado e para cada codigo de tecla, inserindo seu valor correspondente
+		//a barra e o ponto tem um codigo diferente caso sejam usada pelo num lock ou teclado,
+		//para conseguir distinguir ambos, usei o getExtendedKeyCode
 		if(e.getKeyCode() == 16) {
 			aux = 0;
 		} else if(aux == 0 && e.getKeyCode() == 48 || e.getKeyCode() == 96) {
@@ -65,11 +67,6 @@ public class AcaoTeclado implements KeyListener {
 		} else if(aux == 0 && e.getKeyCode() == 44 || e.getKeyCode() == 110 || e.getExtendedKeyCode() == 46) {
 			edit.setText(",");
 		}
-		
-		
-		System.out.println("Released: " + e.getKeyCode());
-		System.out.println("Released: " + aux + "\n");
-		System.out.println(e.getExtendedKeyCode());
 	}
 
 	@Override
