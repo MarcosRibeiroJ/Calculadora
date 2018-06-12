@@ -143,27 +143,45 @@ public class TelaCalculadora {
 	public void formataBotoes() {
 		Font fonteBotao = new Font("arial", Font.BOLD, 20);
 		b7.setFont(fonteBotao);
+		b7.setFocusable(false);
 		b8.setFont(fonteBotao);
+		b8.setFocusable(false);
 		b9.setFont(fonteBotao);
+		b9.setFocusable(false);
 		bDiv.setFont(fonteBotao);
+		bDiv.setFocusable(false);
 		b4.setFont(fonteBotao);
+		b4.setFocusable(false);
 		b5.setFont(fonteBotao);
+		b5.setFocusable(false);
 		b6.setFont(fonteBotao);
+		b6.setFocusable(false);
 		bMulti.setFont(fonteBotao);
+		bMulti.setFocusable(false);
 		b1.setFont(fonteBotao);
+		b1.setFocusable(false);
 		b2.setFont(fonteBotao);
+		b2.setFocusable(false);
 		b3.setFont(fonteBotao);
+		b3.setFocusable(false);
 		bSub.setFont(fonteBotao);
+		bSub.setFocusable(false);
 		b0.setFont(fonteBotao);
+		b0.setFocusable(false);
 		bVirgula.setFont(fonteBotao);
+		bVirgula.setFocusable(false);
 		
 		Font fonteBotao2 = new Font("arial", Font.BOLD, 19);
 		bSoma.setFont(fonteBotao2);
+		bSoma.setFocusable(false);
 		bIgual.setFont(fonteBotao2);
+		bIgual.setFocusable(false);
 		
 		Font fonteBotao3 = new Font("arial", Font.BOLD, 15);
 		bBack.setFont(fonteBotao3);
+		bBack.setFocusable(false);
 		bClear.setFont(fonteBotao3);
+		bClear.setFocusable(false);
 	}
 	
 	public JTextField getJTextField() {
@@ -180,6 +198,14 @@ public class TelaCalculadora {
 		b5.addActionListener(acao.new AcaoBotao5(this.getJTextField()));
 		b6.addActionListener(acao.new AcaoBotao6(this.getJTextField()));
 		bMulti.addActionListener(acao.new AcaoBotaoMulti(this.getJTextField()));
+		b1.addActionListener(acao.new AcaoBotao1(this.getJTextField()));
+		b2.addActionListener(acao.new AcaoBotao2(this.getJTextField()));
+		b3.addActionListener(acao.new AcaoBotao3(this.getJTextField()));
+		bSub.addActionListener(acao.new AcaoBotaoSub(this.getJTextField()));
+		b0.addActionListener(acao.new AcaoBotao0(this.getJTextField()));
+		bVirgula.addActionListener(acao.new AcaoBotaoVirgula(this.getJTextField()));
+		bSoma.addActionListener(acao.new AcaoBotaoSoma(this.getJTextField()));
+		bClear.addActionListener(acao.new AcaoBotaoClear(this.getJTextField()));
 	}
 
 }
