@@ -44,7 +44,7 @@ public class TelaCalculadora {
 	
 	//Metodo para adicionar e alinhar os objetos na tela da calculadora
 	public void adicionaComponentes() {
-		edit = new JTextField();//instancia o objeto
+		edit = new JTextField("0");//instancia o objeto
 		edit.setHorizontalAlignment(JTextField.RIGHT);//alinha o cursor a direita
 		edit.setBounds(14, 20, 267, 100);//quanto se distancia da esquerda para direita, quanto se distancia de cima pra baixo, largura do objeto, altura do objeto
 		telaCalc.add(edit);//adiciona componente a janela

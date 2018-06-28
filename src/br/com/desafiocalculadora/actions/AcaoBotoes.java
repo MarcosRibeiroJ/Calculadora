@@ -22,7 +22,11 @@ public class AcaoBotoes {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			edit.setText("7");
+			if(edit.getText().equals("0")) {
+				edit.setText("7");
+			} else {
+				edit.setText(edit.getText() + "7");
+			}
 		}
 	}
 	
@@ -35,7 +39,11 @@ public class AcaoBotoes {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			edit.setText("8");
+			if(edit.getText().equals("0")) {
+				edit.setText("8");
+			} else {
+				edit.setText(edit.getText() + "8");
+			}
 		}
 	}
 	
@@ -48,7 +56,11 @@ public class AcaoBotoes {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			edit.setText("9");
+			if(edit.getText().equals("0")) {
+				edit.setText("9");
+			} else {
+				edit.setText(edit.getText() + "9");
+			}
 		}
 	}
 	
@@ -74,7 +86,11 @@ public class AcaoBotoes {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			edit.setText("4");
+			if(edit.getText().equals("0")) {
+				edit.setText("4");
+			} else {
+				edit.setText(edit.getText() + "4");
+			}
 		}
 	}
 	
@@ -87,7 +103,11 @@ public class AcaoBotoes {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			edit.setText("5");
+			if(edit.getText().equals("0")) {
+				edit.setText("5");
+			} else {
+				edit.setText(edit.getText() + "5");
+			}
 		}
 	}
 	
@@ -100,7 +120,11 @@ public class AcaoBotoes {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			edit.setText("6");
+			if(edit.getText().equals("0")) {
+				edit.setText("6");
+			} else {
+				edit.setText(edit.getText() + "6");
+			}
 		}
 	}
 	
@@ -126,7 +150,11 @@ public class AcaoBotoes {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			edit.setText("1");
+			if(edit.getText().equals("0")) {
+				edit.setText("1");
+			} else {
+				edit.setText(edit.getText() + "1");
+			}
 		}
 	}
 	
@@ -139,7 +167,11 @@ public class AcaoBotoes {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			edit.setText("2");
+			if(edit.getText().equals("0")) {
+				edit.setText("2");
+			} else {
+				edit.setText(edit.getText() + "2");
+			}
 		}
 	}
 	
@@ -152,7 +184,11 @@ public class AcaoBotoes {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			edit.setText("3");
+			if(edit.getText().equals("0")) {
+				edit.setText("3");
+			} else {
+				edit.setText(edit.getText() + "3");
+			}
 		}
 	}
 	
@@ -178,7 +214,11 @@ public class AcaoBotoes {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			edit.setText("0");
+			if(edit.getText().equals("0")) {
+				edit.setText("0,");
+			} else {
+				edit.setText(edit.getText() + "0");
+			}
 		}
 	}
 	
