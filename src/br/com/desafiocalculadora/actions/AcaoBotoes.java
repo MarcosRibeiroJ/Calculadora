@@ -231,7 +231,9 @@ public class AcaoBotoes {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			edit.setText(",");
+			if(edit.getText().indexOf(",") < 0) {
+				edit.setText(edit.getText() + ",");
+			}
 		}
 	}
 	

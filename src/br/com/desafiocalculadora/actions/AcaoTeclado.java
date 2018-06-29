@@ -65,7 +65,7 @@ public class AcaoTeclado implements KeyListener {
 		} else if(aux == 0 && e.getKeyCode() == 45 || e.getKeyCode() == 109) {
 			edit.setText("-");
 		} else if(aux == 0 && e.getKeyCode() == 44 || e.getKeyCode() == 110 || e.getExtendedKeyCode() == 46) {
-			edit.setText(",");
+			formataVirgula();
 		}
 	}
 
@@ -154,6 +154,12 @@ public class AcaoTeclado implements KeyListener {
 		} else {
 			edit.setText(edit.getText() + "9");
 		}
+	}
+	
+	public void formataVirgula() {
+		if(edit.getText().indexOf(",") < 0) {
+			edit.setText(edit.getText() + ",");
+		} 
 	}
 
 }
