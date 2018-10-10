@@ -177,7 +177,7 @@ public class AcaoBotoes {
 	
 	public class AcaoBotao3 implements ActionListener {
 		private JTextField edit;
-		
+				
 		public AcaoBotao3 (JTextField edit) {
 			this.edit = edit;
 		}
@@ -188,20 +188,43 @@ public class AcaoBotoes {
 				edit.setText("3");
 			} else {
 				edit.setText(edit.getText() + "3");
+				System.out.println(edit.getText().charAt(2));//teste de pegar um caracter da string
 			}
 		}
 	}
 	
 	public class AcaoBotaoSub implements ActionListener {
 		private JTextField edit;
-		
+		private int contador;
+				
 		public AcaoBotaoSub (JTextField edit) {
 			this.edit = edit;
+			this.contador = 0;
 		}
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			edit.setText("-");
+			for(int i = 0; i < edit.getText().length(); i++) {
+				if(edit.getText().charAt(i) == '-') {
+					contador++;
+				}
+			}
+			
+			if(edit.getText().equals("0")) {
+				edit.setText("-");
+			} else if((edit.getText().length() == 1) && (edit.getText().charAt(0) == '-')) {
+				edit.setText(edit.getText());
+			} else if(edit.getText().length() == 1 && edit.getText().charAt(0) != '-') {
+				edit.setText(edit.getText() + "-");
+			} else if(edit.getText().length() > 1 && edit.getText().charAt(0) == '-' && contador < 2) {
+				edit.setText(edit.getText() + "-");
+			} else if(edit.getText().length() > 1 && edit.getText().charAt(0) != '-' && contador == 0) {
+				edit.setText(edit.getText() + "-");
+			} else {
+				edit.setText(edit.getText());
+			}
+			
+			contador = 0;
 		}
 	}
 	
@@ -231,7 +254,9 @@ public class AcaoBotoes {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(edit.getText().indexOf(",") < 0) {
+			if(edit.getText().equals("-")) {
+				edit.setText(edit.getText() + "0,");
+			} else if(edit.getText().indexOf(",") < 0) {
 				edit.setText(edit.getText() + ",");
 			}
 		}
