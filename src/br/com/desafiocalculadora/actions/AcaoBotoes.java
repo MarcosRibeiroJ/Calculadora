@@ -188,7 +188,6 @@ public class AcaoBotoes {
 				edit.setText("3");
 			} else {
 				edit.setText(edit.getText() + "3");
-				System.out.println(edit.getText().charAt(2));//teste de pegar um caracter da string
 			}
 		}
 	}
@@ -212,13 +211,13 @@ public class AcaoBotoes {
 			
 			if(edit.getText().equals("0")) {
 				edit.setText("-");
-			} else if((edit.getText().length() == 1) && (edit.getText().charAt(0) == '-')) {
+			} else if(edit.getText().length() == 1 && edit.getText().charAt(0) == '-') {
 				edit.setText(edit.getText());
-			} else if(edit.getText().length() == 1 && edit.getText().charAt(0) != '-') {
+			} else if(edit.getText().length() == 1 && edit.getText().charAt(0) != '-' && !edit.getText().equals("+") && !edit.getText().equals("*") && !edit.getText().equals("/")) {
 				edit.setText(edit.getText() + "-");
-			} else if(edit.getText().length() > 1 && edit.getText().charAt(0) == '-' && contador < 2) {
+			} else if(edit.getText().length() > 1 && edit.getText().charAt(0) == '-' && contador < 2 && edit.getText().indexOf("+") < 0 && edit.getText().indexOf("*") < 0 && edit.getText().indexOf("/") < 0) {
 				edit.setText(edit.getText() + "-");
-			} else if(edit.getText().length() > 1 && edit.getText().charAt(0) != '-' && contador == 0) {
+			} else if(edit.getText().length() > 1 && edit.getText().charAt(0) != '-' && contador == 0 && edit.getText().indexOf("+") < 0 && edit.getText().indexOf("*") < 0 && edit.getText().indexOf("/") < 0) {
 				edit.setText(edit.getText() + "-");
 			} else {
 				edit.setText(edit.getText());
@@ -271,7 +270,26 @@ public class AcaoBotoes {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			edit.setText("+");
+			int contadorSoma = 0;
+			int contadorSub = 0;
+			for(int i = 0;i < edit.getText().length();i++) {
+				if(edit.getText().charAt(i) == '+') {
+					contadorSoma++;
+				} else if(edit.getText().charAt(i) == '-') {
+					contadorSub++;
+				}
+			}
+			if(edit.getText().equals("0")) {
+				edit.setText(edit.getText() + "+");
+			} else if(contadorSoma < 1 && edit.getText().charAt(0) == '-' && contadorSub == 1 && edit.getText().length() > 1) {
+				edit.setText(edit.getText() + "+");
+			} else if(contadorSoma < 1 && contadorSub < 1) {
+				edit.setText(edit.getText() + "+");
+			} else {
+				edit.setText(edit.getText());
+			}
+			contadorSoma = 0;
+			contadorSub = 0;
 		}
 	}
 	
