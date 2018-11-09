@@ -73,7 +73,11 @@ public class AcaoBotoes {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			edit.setText("/");
+			if(edit.getText().indexOf("/") < 0) {
+				edit.setText(edit.getText() + "/");
+			} else {
+				edit.setText(edit.getText());
+			}
 		}
 	}
 	
@@ -137,7 +141,11 @@ public class AcaoBotoes {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			edit.setText("*");
+			if(edit.getText().indexOf("*") < 0) {
+				edit.setText(edit.getText() + "*");
+			} else {
+				edit.setText(edit.getText());
+			}
 		}
 	}
 	
@@ -303,6 +311,56 @@ public class AcaoBotoes {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			edit.setText("0");
+		}
+	}
+	
+	public class AcaoBotaoIgual implements ActionListener {
+		private JTextField edit;
+		private double num1, num2, total;
+		private String texto1, texto2;
+		private int num3;
+		
+		public AcaoBotaoIgual(JTextField edit) {
+			this.edit = edit;
+		}
+		
+		public void separaNumeros() {
+			if(edit.getText().lastIndexOf("-") > 0) {
+				texto1 = edit.getText().substring(0,edit.getText().lastIndexOf("-"));
+				texto1 = texto1.replaceAll(",", ".");
+				System.out.println(texto1);
+				texto2 = edit.getText().substring(edit.getText().lastIndexOf("-") + 1);
+				System.out.println(texto2);
+				num1 = Double.parseDouble(texto1);
+				num2 = Double.parseDouble(texto2);
+				total = num1-num2;
+				edit.setText(Double.toString(total));
+				System.out.println(total);
+			} else if(edit.getText().lastIndexOf("+") > 0) {
+				texto1 = edit.getText().substring(0,edit.getText().lastIndexOf("+"));
+				System.out.println(texto1);
+				texto2 = edit.getText().substring(edit.getText().lastIndexOf("+") + 1);
+				System.out.println(texto2);
+			} else if(edit.getText().lastIndexOf("*") > 0) {
+				texto1 = edit.getText().substring(0,edit.getText().lastIndexOf("*"));
+				System.out.println(texto1);
+				texto2 = edit.getText().substring(edit.getText().lastIndexOf("*") + 1);
+				System.out.println(texto2);
+			} else if(edit.getText().lastIndexOf("/") > 0) {
+				texto1 = edit.getText().substring(0,edit.getText().lastIndexOf("/"));
+				System.out.println(texto1);
+				texto2 = edit.getText().substring(edit.getText().lastIndexOf("/") + 1);
+				System.out.println(texto2);
+			}
+		}
+		
+		public void converteTexto() {
+			
+		}
+		
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			separaNumeros();
 		}
 	}
 }

@@ -206,6 +206,7 @@ public class TelaCalculadora {
 		bVirgula.addActionListener(acao.new AcaoBotaoVirgula(this.getJTextField()));
 		bSoma.addActionListener(acao.new AcaoBotaoSoma(this.getJTextField()));
 		bClear.addActionListener(acao.new AcaoBotaoClear(this.getJTextField()));
+		bIgual.addActionListener(acao.new AcaoBotaoIgual(this.getJTextField()));
 	}
 
 }
