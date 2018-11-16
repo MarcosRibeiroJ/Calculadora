@@ -5,6 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 
+import br.com.desafiocalculadora.calculos.Calculo;
+
 /**
  * Classe que criara as acoes dos botoes da calculadora
  * Toda vez que um botao for pressionado, seu valor corresponde sera exibido no visor
@@ -327,35 +329,25 @@ public class AcaoBotoes {
 		public void separaNumeros() {
 			if(edit.getText().lastIndexOf("-") > 0) {
 				texto1 = edit.getText().substring(0,edit.getText().lastIndexOf("-"));
-				texto1 = texto1.replaceAll(",", ".");
-				System.out.println(texto1);
 				texto2 = edit.getText().substring(edit.getText().lastIndexOf("-") + 1);
-				System.out.println(texto2);
-				num1 = Double.parseDouble(texto1);
-				num2 = Double.parseDouble(texto2);
-				total = num1-num2;
-				edit.setText(Double.toString(total));
-				System.out.println(total);
+				Calculo calculo = new Calculo(texto1, texto2);
+				edit.setText(calculo.sub());
 			} else if(edit.getText().lastIndexOf("+") > 0) {
 				texto1 = edit.getText().substring(0,edit.getText().lastIndexOf("+"));
-				System.out.println(texto1);
 				texto2 = edit.getText().substring(edit.getText().lastIndexOf("+") + 1);
-				System.out.println(texto2);
+				Calculo calculo = new Calculo(texto1, texto2);
+				edit.setText(calculo.soma());
 			} else if(edit.getText().lastIndexOf("*") > 0) {
 				texto1 = edit.getText().substring(0,edit.getText().lastIndexOf("*"));
-				System.out.println(texto1);
 				texto2 = edit.getText().substring(edit.getText().lastIndexOf("*") + 1);
-				System.out.println(texto2);
+				Calculo calculo = new Calculo(texto1, texto2);
+				edit.setText(calculo.mult());
 			} else if(edit.getText().lastIndexOf("/") > 0) {
 				texto1 = edit.getText().substring(0,edit.getText().lastIndexOf("/"));
-				System.out.println(texto1);
 				texto2 = edit.getText().substring(edit.getText().lastIndexOf("/") + 1);
-				System.out.println(texto2);
+				Calculo calculo = new Calculo(texto1, texto2);
+				edit.setText(calculo.div());
 			}
-		}
-		
-		public void converteTexto() {
-			
 		}
 		
 		@Override
