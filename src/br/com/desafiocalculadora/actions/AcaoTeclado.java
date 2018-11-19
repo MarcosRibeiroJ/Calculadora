@@ -57,13 +57,13 @@ public class AcaoTeclado implements KeyListener {
 		} else if(aux == 0 && e.getKeyCode() == 57 || e.getKeyCode() == 105) {
 			formataNove();
 		} else if(aux == 1 && e.getKeyCode() == 61 || e.getKeyCode() == 107) {
-			edit.setText("+");
+			formataSoma();
 		} else if(aux == 0 && e.getKeyCode() == KeyEvent.VK_SLASH || e.getKeyCode() == 111 || e.getExtendedKeyCode() == 47) {
-			edit.setText("/");
+			formataDiv();
 		} else if(aux == 1 && up == 56 || e.getKeyCode() == 106) {
-			edit.setText("*");
+			formataMulti();
 		} else if(aux == 0 && e.getKeyCode() == 45 || e.getKeyCode() == 109) {
-			edit.setText("-");
+			formataSub();
 		} else if(aux == 0 && e.getKeyCode() == 44 || e.getKeyCode() == 110 || e.getExtendedKeyCode() == 46) {
 			formataVirgula();
 		}
@@ -160,6 +160,72 @@ public class AcaoTeclado implements KeyListener {
 		if(edit.getText().indexOf(",") < 0) {
 			edit.setText(edit.getText() + ",");
 		} 
+	}
+	
+	public void formataSoma( ) {
+		int contadorSoma = 0;
+		int contadorSub = 0;
+		for(int i = 0;i < edit.getText().length();i++) {
+			if(edit.getText().charAt(i) == '+') {
+				contadorSoma++;
+			} else if(edit.getText().charAt(i) == '-') {
+				contadorSub++;
+			}
+		}
+		if(edit.getText().equals("0")) {
+			edit.setText(edit.getText() + "+");
+		} else if(contadorSoma < 1 && edit.getText().charAt(0) == '-' && contadorSub == 1 && edit.getText().length() > 1) {
+			edit.setText(edit.getText() + "+");
+		} else if(contadorSoma < 1 && contadorSub < 1) {
+			edit.setText(edit.getText() + "+");
+		} else {
+			edit.setText(edit.getText());
+		}
+		contadorSoma = 0;
+		contadorSub = 0;
+	}
+	
+	public void formataSub( ) {
+		int contador;
+		contador = 0;
+		
+		for(int i = 0; i < edit.getText().length(); i++) {
+			if(edit.getText().charAt(i) == '-') {
+				contador++;
+			}
+		}
+		
+		if(edit.getText().equals("0")) {
+			edit.setText("-");
+		} else if(edit.getText().length() == 1 && edit.getText().charAt(0) == '-') {
+			edit.setText(edit.getText());
+		} else if(edit.getText().length() == 1 && edit.getText().charAt(0) != '-' && !edit.getText().equals("+") && !edit.getText().equals("*") && !edit.getText().equals("/")) {
+			edit.setText(edit.getText() + "-");
+		} else if(edit.getText().length() > 1 && edit.getText().charAt(0) == '-' && contador < 2 && edit.getText().indexOf("+") < 0 && edit.getText().indexOf("*") < 0 && edit.getText().indexOf("/") < 0) {
+			edit.setText(edit.getText() + "-");
+		} else if(edit.getText().length() > 1 && edit.getText().charAt(0) != '-' && contador == 0 && edit.getText().indexOf("+") < 0 && edit.getText().indexOf("*") < 0 && edit.getText().indexOf("/") < 0) {
+			edit.setText(edit.getText() + "-");
+		} else {
+			edit.setText(edit.getText());
+		}
+		
+		contador = 0;
+	}
+	
+	public void formataMulti() {
+		if(edit.getText().indexOf("*") < 0) {
+			edit.setText(edit.getText() + "*");
+		} else {
+			edit.setText(edit.getText());
+		}
+	}
+	
+	public void formataDiv() {
+		if(edit.getText().indexOf("/") < 0) {
+			edit.setText(edit.getText() + "/");
+		} else {
+			edit.setText(edit.getText());
+		}
 	}
 
 }
