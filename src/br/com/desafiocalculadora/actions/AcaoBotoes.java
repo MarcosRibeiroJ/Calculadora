@@ -75,7 +75,13 @@ public class AcaoBotoes {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(edit.getText().indexOf("/") < 0) {
+			int ultimo = edit.getText().length()-1;
+			
+			if((edit.getText().lastIndexOf("-") >= 1 || edit.getText().lastIndexOf("+") >= 1 || edit.getText().lastIndexOf("*") >= 1 || edit.getText().lastIndexOf("/") >= 1) && (edit.getText().charAt(ultimo) != '-' && edit.getText().charAt(ultimo) != '+' && edit.getText().charAt(ultimo) != '*' && edit.getText().charAt(ultimo) != '/')) {
+				AcaoBotaoIgual acao = new AcaoBotaoIgual(edit);
+				acao.separaNumeros();
+				edit.setText(edit.getText() + "/");
+			} else if(edit.getText().indexOf("/") < 0) {
 				edit.setText(edit.getText() + "/");
 			} else {
 				edit.setText(edit.getText());
@@ -143,8 +149,15 @@ public class AcaoBotoes {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(edit.getText().indexOf("*") < 0) {
+			int ultimo = edit.getText().length()-1;
+			
+			if((edit.getText().lastIndexOf("-") >= 1 || edit.getText().lastIndexOf("+") >= 1 || edit.getText().lastIndexOf("*") >= 1 || edit.getText().lastIndexOf("/") >= 1) && (edit.getText().charAt(ultimo) != '-' && edit.getText().charAt(ultimo) != '+' && edit.getText().charAt(ultimo) != '*' && edit.getText().charAt(ultimo) != '/')) {
+				AcaoBotaoIgual acao = new AcaoBotaoIgual(edit);
+				acao.separaNumeros();
 				edit.setText(edit.getText() + "*");
+			} else if(edit.getText().indexOf("*") < 0) {
+				edit.setText(edit.getText() + "*");
+				System.out.println(edit.getText().indexOf("*"));
 			} else {
 				edit.setText(edit.getText());
 			}
@@ -213,13 +226,18 @@ public class AcaoBotoes {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			int ultimo = edit.getText().length()-1;
 			for(int i = 0; i < edit.getText().length(); i++) {
 				if(edit.getText().charAt(i) == '-') {
 					contador++;
 				}
 			}
 			
-			if(edit.getText().equals("0")) {
+			if((edit.getText().lastIndexOf("-") >= 1 || edit.getText().lastIndexOf("+") >= 1 || edit.getText().lastIndexOf("*") >= 1 || edit.getText().lastIndexOf("/") >= 1) && (edit.getText().charAt(ultimo) != '-' && edit.getText().charAt(ultimo) != '+' && edit.getText().charAt(ultimo) != '*' && edit.getText().charAt(ultimo) != '/')) {
+				AcaoBotaoIgual acao = new AcaoBotaoIgual(edit);
+				acao.separaNumeros();
+				edit.setText(edit.getText() + "-");
+			} else if(edit.getText().equals("0")) {
 				edit.setText("-");
 			} else if(edit.getText().length() == 1 && edit.getText().charAt(0) == '-') {
 				edit.setText(edit.getText());
@@ -304,6 +322,7 @@ public class AcaoBotoes {
 		public void actionPerformed(ActionEvent e) {
 			int contadorSoma = 0;
 			int contadorSub = 0;
+			int ultimo = edit.getText().length()-1;
 			for(int i = 0;i < edit.getText().length();i++) {
 				if(edit.getText().charAt(i) == '+') {
 					contadorSoma++;
@@ -311,7 +330,11 @@ public class AcaoBotoes {
 					contadorSub++;
 				}
 			}
-			if(edit.getText().equals("0")) {
+			if((edit.getText().lastIndexOf("-") >= 1 || edit.getText().lastIndexOf("+") >= 1 || edit.getText().lastIndexOf("*") >= 1 || edit.getText().lastIndexOf("/") >= 1) && (edit.getText().charAt(ultimo) != '-' && edit.getText().charAt(ultimo) != '+' && edit.getText().charAt(ultimo) != '*' && edit.getText().charAt(ultimo) != '/')) {
+				AcaoBotaoIgual acao = new AcaoBotaoIgual(edit);
+				acao.separaNumeros();
+				edit.setText(edit.getText() + "+");
+			} else if(edit.getText().equals("0")) {
 				edit.setText(edit.getText() + "+");
 			} else if(contadorSoma < 1 && edit.getText().charAt(0) == '-' && contadorSub == 1 && edit.getText().length() > 1) {
 				edit.setText(edit.getText() + "+");
@@ -347,22 +370,22 @@ public class AcaoBotoes {
 		}
 		
 		public void separaNumeros() {
-			if(edit.getText().lastIndexOf("-") > 0) {
+			if(edit.getText().lastIndexOf("-") > 0 && edit.getText().length() > edit.getText().lastIndexOf("-")+1) {
 				texto1 = edit.getText().substring(0,edit.getText().lastIndexOf("-"));
 				texto2 = edit.getText().substring(edit.getText().lastIndexOf("-") + 1);
 				Calculo calculo = new Calculo(texto1, texto2);
 				edit.setText(calculo.sub());
-			} else if(edit.getText().lastIndexOf("+") > 0) {
+			} else if(edit.getText().lastIndexOf("+") > 0 && edit.getText().length() > edit.getText().lastIndexOf("+")+1) {
 				texto1 = edit.getText().substring(0,edit.getText().lastIndexOf("+"));
 				texto2 = edit.getText().substring(edit.getText().lastIndexOf("+") + 1);
 				Calculo calculo = new Calculo(texto1, texto2);
 				edit.setText(calculo.soma());
-			} else if(edit.getText().lastIndexOf("*") > 0) {
+			} else if(edit.getText().lastIndexOf("*") > 0 && edit.getText().length() > edit.getText().lastIndexOf("*")+1) {
 				texto1 = edit.getText().substring(0,edit.getText().lastIndexOf("*"));
 				texto2 = edit.getText().substring(edit.getText().lastIndexOf("*") + 1);
 				Calculo calculo = new Calculo(texto1, texto2);
 				edit.setText(calculo.mult());
-			} else if(edit.getText().lastIndexOf("/") > 0) {
+			} else if(edit.getText().lastIndexOf("/") > 0 && edit.getText().length() > edit.getText().lastIndexOf("/")+1) {
 				texto1 = edit.getText().substring(0,edit.getText().lastIndexOf("/"));
 				texto2 = edit.getText().substring(edit.getText().lastIndexOf("/") + 1);
 				Calculo calculo = new Calculo(texto1, texto2);

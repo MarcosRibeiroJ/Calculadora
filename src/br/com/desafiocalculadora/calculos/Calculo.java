@@ -1,5 +1,8 @@
 package br.com.desafiocalculadora.calculos;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+
 /**
  * Classe criada para realizar as operações matemáticas da calculadora
  * Em todos os métodos ela recebrá os parametros em formato de texto, convertera os mesmos para número
@@ -27,7 +30,9 @@ public class Calculo {
 			int total = (int)(num1+num2);
 			return Integer.toString(total);
 		} else {
-			return Double.toString((num1+num2)).replace(".", ",");
+			DecimalFormat formato = new DecimalFormat("###.####");
+			formato.setRoundingMode(RoundingMode.UP);
+			return formato.format(num1+num2).replace(".", ",");
 		}
 	}
 	
@@ -36,7 +41,9 @@ public class Calculo {
 			int total = (int)(num1-num2);
 			return Integer.toString(total);
 		} else {
-			return Double.toString((num1-num2)).replace(".", ",");
+			DecimalFormat formato = new DecimalFormat("###.####");
+			formato.setRoundingMode(RoundingMode.UP);
+			return formato.format(num1-num2).replace(".", ",");
 		}
 	}
 	
@@ -45,7 +52,9 @@ public class Calculo {
 			int total = (int)(num1*num2);
 			return Integer.toString(total);
 		} else {
-			return Double.toString((num1*num2)).replace(".", ",");
+			DecimalFormat formato = new DecimalFormat("###.####");
+			formato.setRoundingMode(RoundingMode.UP);
+			return formato.format(num1*num2).replace(".", ",");
 		}
 	}
 	
@@ -56,7 +65,9 @@ public class Calculo {
 			int total = (int)(num1/num2);
 			return Integer.toString(total);
 		}else {
-			return Double.toString((num1/num2)).replace(".", ",");
+			DecimalFormat formato = new DecimalFormat("###.####");
+			formato.setRoundingMode(RoundingMode.UP);
+			return formato.format(num1/num2).replace(".", ",");
 		}
 	}
 

@@ -2,6 +2,7 @@ package br.com.desafiocalculadora.actions;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+
 import javax.swing.JTextField;
 
 /**
@@ -191,6 +192,7 @@ public class AcaoTeclado implements KeyListener {
 	public void formataSoma( ) {
 		int contadorSoma = 0;
 		int contadorSub = 0;
+		int ultimo = edit.getText().length()-1;
 		for(int i = 0;i < edit.getText().length();i++) {
 			if(edit.getText().charAt(i) == '+') {
 				contadorSoma++;
@@ -198,7 +200,11 @@ public class AcaoTeclado implements KeyListener {
 				contadorSub++;
 			}
 		}
-		if(edit.getText().equals("0")) {
+		if((edit.getText().lastIndexOf("-") >= 1 || edit.getText().lastIndexOf("+") >= 1 || edit.getText().lastIndexOf("*") >= 1 || edit.getText().lastIndexOf("/") >= 1) && (edit.getText().charAt(ultimo) != '-' && edit.getText().charAt(ultimo) != '+' && edit.getText().charAt(ultimo) != '*' && edit.getText().charAt(ultimo) != '/')) {
+			AcaoBotoes.AcaoBotaoIgual acao = new AcaoBotoes().new AcaoBotaoIgual(edit);
+			acao.separaNumeros();
+			edit.setText(edit.getText() + "+");
+		} else if(edit.getText().equals("0")) {
 			edit.setText(edit.getText() + "+");
 		} else if(contadorSoma < 1 && edit.getText().charAt(0) == '-' && contadorSub == 1 && edit.getText().length() > 1) {
 			edit.setText(edit.getText() + "+");
@@ -213,6 +219,7 @@ public class AcaoTeclado implements KeyListener {
 	
 	public void formataSub( ) {
 		int contador;
+		int ultimo = edit.getText().length()-1;
 		contador = 0;
 		
 		for(int i = 0; i < edit.getText().length(); i++) {
@@ -221,7 +228,11 @@ public class AcaoTeclado implements KeyListener {
 			}
 		}
 		
-		if(edit.getText().equals("0")) {
+		if((edit.getText().lastIndexOf("-") >= 1 || edit.getText().lastIndexOf("+") >= 1 || edit.getText().lastIndexOf("*") >= 1 || edit.getText().lastIndexOf("/") >= 1) && (edit.getText().charAt(ultimo) != '-' && edit.getText().charAt(ultimo) != '+' && edit.getText().charAt(ultimo) != '*' && edit.getText().charAt(ultimo) != '/')) {
+			AcaoBotoes.AcaoBotaoIgual acao = new AcaoBotoes().new AcaoBotaoIgual(edit);
+			acao.separaNumeros();
+			edit.setText(edit.getText() + "-");
+		} else if(edit.getText().equals("0")) {
 			edit.setText("-");
 		} else if(edit.getText().length() == 1 && edit.getText().charAt(0) == '-') {
 			edit.setText(edit.getText());
@@ -239,15 +250,28 @@ public class AcaoTeclado implements KeyListener {
 	}
 	
 	public void formataMulti() {
-		if(edit.getText().indexOf("*") < 0) {
+		int ultimo = edit.getText().length()-1;
+		
+		if((edit.getText().lastIndexOf("-") >= 1 || edit.getText().lastIndexOf("+") >= 1 || edit.getText().lastIndexOf("*") >= 1 || edit.getText().lastIndexOf("/") >= 1) && (edit.getText().charAt(ultimo) != '-' && edit.getText().charAt(ultimo) != '+' && edit.getText().charAt(ultimo) != '*' && edit.getText().charAt(ultimo) != '/')) {
+			AcaoBotoes.AcaoBotaoIgual acao = new AcaoBotoes().new AcaoBotaoIgual(edit);
+			acao.separaNumeros();
 			edit.setText(edit.getText() + "*");
+		} else if(edit.getText().indexOf("*") < 0) {
+			edit.setText(edit.getText() + "*");
+			System.out.println(edit.getText().indexOf("*"));
 		} else {
 			edit.setText(edit.getText());
 		}
 	}
 	
 	public void formataDiv() {
-		if(edit.getText().indexOf("/") < 0) {
+		int ultimo = edit.getText().length()-1;
+		
+		if((edit.getText().lastIndexOf("-") >= 1 || edit.getText().lastIndexOf("+") >= 1 || edit.getText().lastIndexOf("*") >= 1 || edit.getText().lastIndexOf("/") >= 1) && (edit.getText().charAt(ultimo) != '-' && edit.getText().charAt(ultimo) != '+' && edit.getText().charAt(ultimo) != '*' && edit.getText().charAt(ultimo) != '/')) {
+			AcaoBotoes.AcaoBotaoIgual acao = new AcaoBotoes().new AcaoBotaoIgual(edit);
+			acao.separaNumeros();
+			edit.setText(edit.getText() + "/");
+		} else if(edit.getText().indexOf("/") < 0) {
 			edit.setText(edit.getText() + "/");
 		} else {
 			edit.setText(edit.getText());
