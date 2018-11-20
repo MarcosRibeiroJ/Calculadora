@@ -39,7 +39,6 @@ public class TelaCalculadora {
 		formataEdit();//formata o campo para digitar
 		formataBotoes();//formata o texto dos botoes
 		adicionaAcaoBotoes();
-		//fecharJanela();
 	}
 	
 	//Metodo para adicionar e alinhar os objetos na tela da calculadora
@@ -125,11 +124,6 @@ public class TelaCalculadora {
 	public JFrame getTelaCalculadora() {
 		return telaCalc;
 	}
-	
-	/**public void fecharJanela() {
-		AcaoTelaCalculadora fechar = new AcaoTelaCalculadora();
-		telaCalc.addWindowListener(fechar.new FecharJanela());
-	}*/
 	
 	public void formataEdit() {
 		Font fonteEdit = new Font("arial", Font.PLAIN, 50);//fonte
