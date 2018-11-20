@@ -69,6 +69,8 @@ public class AcaoTeclado implements KeyListener {
 			formataVirgula();
 		} else if(aux == 0 && e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_EQUALS) {
 			formataIgual();
+		} else if(aux == 0 && e.getKeyCode() == KeyEvent.VK_BACK_SPACE) {
+			formataBack();
 		}
 	}
 
@@ -282,6 +284,17 @@ public class AcaoTeclado implements KeyListener {
 		//preferi reaproveitar o metodo criado na classe Acao botoes do que repeti-lo aqui
 		AcaoBotoes.AcaoBotaoIgual acao = new AcaoBotoes().new AcaoBotaoIgual(this.edit);
 		acao.separaNumeros();
+	}
+	
+	public void formataBack() {
+		int tamanho = edit.getText().length();
+		if(tamanho == 1) {
+			edit.setText("0");
+		} else {
+			String novo;
+			novo = edit.getText().substring(0,tamanho-1);
+			edit.setText(novo);
+		}
 	}
 
 }

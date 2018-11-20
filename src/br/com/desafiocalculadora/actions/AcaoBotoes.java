@@ -398,4 +398,24 @@ public class AcaoBotoes {
 			separaNumeros();
 		}
 	}
+	
+	public class AcaoBotaoBack implements ActionListener {
+		private JTextField edit;
+		
+		public AcaoBotaoBack (JTextField edit) {
+			this.edit = edit;
+		}
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			int tamanho = edit.getText().length();
+			if(tamanho == 1) {
+				edit.setText("0");
+			} else {
+				String novo;
+				novo = edit.getText().substring(0,tamanho-1);
+				edit.setText(novo);
+			}
+		}
+	}
 }
