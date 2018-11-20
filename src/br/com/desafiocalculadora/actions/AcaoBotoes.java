@@ -263,9 +263,31 @@ public class AcaoBotoes {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if(edit.getText().equals("-")) {
+			int i, contador = 0;
+						
+			for(i = 0; i < edit.getText().length(); i++) {
+				if(edit.getText().charAt(i) == ',') {
+					contador++;
+				}
+			}
+			
+			if(edit.getText().charAt(edit.getText().length()-1) == ',') {
+				edit.setText(edit.getText());
+			} else if(edit.getText().equals("-")) {
 				edit.setText(edit.getText() + "0,");
-			} else if(edit.getText().indexOf(",") < 0) {
+			} else if(edit.getText().equals("0")) {
+				edit.setText(edit.getText() + ",");
+			} else if(contador == 0 && edit.getText().charAt(edit.getText().length()-1) != '-' && edit.getText().charAt(edit.getText().length()-1) != '+' && edit.getText().charAt(edit.getText().length()-1) != '*' && edit.getText().charAt(edit.getText().length()-1) != '/') {
+				edit.setText(edit.getText() + ",");
+			} else if(contador == 1 && edit.getText().lastIndexOf("-") <= 0 && edit.getText().lastIndexOf("+") < 0 &&  edit.getText().lastIndexOf("*") < 0 && edit.getText().lastIndexOf("/") < 0) {
+				edit.setText(edit.getText());
+			} else if(contador == 1 && edit.getText().lastIndexOf("-") > 0 && edit.getText().charAt(edit.getText().length()-1) != '-') {
+				edit.setText(edit.getText() + ",");
+			} else if(contador == 1 && edit.getText().lastIndexOf("+") > 0 && edit.getText().charAt(edit.getText().length()-1) != '+') {
+				edit.setText(edit.getText() + ",");
+			} else if(contador == 1 && edit.getText().lastIndexOf("*") > 0 && edit.getText().charAt(edit.getText().length()-1) != '*') {
+				edit.setText(edit.getText() + ",");
+			} else if(contador == 1 && edit.getText().lastIndexOf("/") > 0 && edit.getText().charAt(edit.getText().length()-1) != '/') {
 				edit.setText(edit.getText() + ",");
 			}
 		}
@@ -318,10 +340,8 @@ public class AcaoBotoes {
 	
 	public class AcaoBotaoIgual implements ActionListener {
 		private JTextField edit;
-		private double num1, num2, total;
 		private String texto1, texto2;
-		private int num3;
-		
+				
 		public AcaoBotaoIgual(JTextField edit) {
 			this.edit = edit;
 		}

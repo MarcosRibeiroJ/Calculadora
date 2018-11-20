@@ -157,9 +157,33 @@ public class AcaoTeclado implements KeyListener {
 	}
 	
 	public void formataVirgula() {
-		if(edit.getText().indexOf(",") < 0) {
+		int i, contador = 0;
+		
+		for(i = 0; i < edit.getText().length(); i++) {
+			if(edit.getText().charAt(i) == ',') {
+				contador++;
+			}
+		}
+		
+		if(edit.getText().charAt(edit.getText().length()-1) == ',') {
+			edit.setText(edit.getText());
+		} else if(edit.getText().equals("-")) {
+			edit.setText(edit.getText() + "0,");
+		} else if(edit.getText().equals("0")) {
 			edit.setText(edit.getText() + ",");
-		} 
+		} else if(contador == 0 && edit.getText().charAt(edit.getText().length()-1) != '-' && edit.getText().charAt(edit.getText().length()-1) != '+' && edit.getText().charAt(edit.getText().length()-1) != '*' && edit.getText().charAt(edit.getText().length()-1) != '/') {
+			edit.setText(edit.getText() + ",");
+		} else if(contador == 1 && edit.getText().lastIndexOf("-") <= 0 && edit.getText().lastIndexOf("+") < 0 &&  edit.getText().lastIndexOf("*") < 0 && edit.getText().lastIndexOf("/") < 0) {
+			edit.setText(edit.getText());
+		} else if(contador == 1 && edit.getText().lastIndexOf("-") > 0 && edit.getText().charAt(edit.getText().length()-1) != '-') {
+			edit.setText(edit.getText() + ",");
+		} else if(contador == 1 && edit.getText().lastIndexOf("+") > 0 && edit.getText().charAt(edit.getText().length()-1) != '+') {
+			edit.setText(edit.getText() + ",");
+		} else if(contador == 1 && edit.getText().lastIndexOf("*") > 0 && edit.getText().charAt(edit.getText().length()-1) != '*') {
+			edit.setText(edit.getText() + ",");
+		} else if(contador == 1 && edit.getText().lastIndexOf("/") > 0 && edit.getText().charAt(edit.getText().length()-1) != '/') {
+			edit.setText(edit.getText() + ",");
+		}
 	}
 	
 	public void formataSoma( ) {
