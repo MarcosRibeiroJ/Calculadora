@@ -26,7 +26,7 @@ public class AcaoBotoes {
 		public void actionPerformed(ActionEvent e) {
 			if(edit.getText().equals("0")) {
 				edit.setText("7");
-			} else {
+			} else if(edit.getText().length() < 9) {
 				edit.setText(edit.getText() + "7");
 			}
 		}
@@ -43,7 +43,7 @@ public class AcaoBotoes {
 		public void actionPerformed(ActionEvent e) {
 			if(edit.getText().equals("0")) {
 				edit.setText("8");
-			} else {
+			} else if(edit.getText().length() < 9) {
 				edit.setText(edit.getText() + "8");
 			}
 		}
@@ -60,7 +60,7 @@ public class AcaoBotoes {
 		public void actionPerformed(ActionEvent e) {
 			if(edit.getText().equals("0")) {
 				edit.setText("9");
-			} else {
+			} else if(edit.getText().length() < 9) {
 				edit.setText(edit.getText() + "9");
 			}
 		}
@@ -77,11 +77,11 @@ public class AcaoBotoes {
 		public void actionPerformed(ActionEvent e) {
 			int ultimo = edit.getText().length()-1;
 			
-			if((edit.getText().lastIndexOf("-") >= 1 || edit.getText().lastIndexOf("+") >= 1 || edit.getText().lastIndexOf("*") >= 1 || edit.getText().lastIndexOf("/") >= 1) && (edit.getText().charAt(ultimo) != '-' && edit.getText().charAt(ultimo) != '+' && edit.getText().charAt(ultimo) != '*' && edit.getText().charAt(ultimo) != '/')) {
+			if((edit.getText().lastIndexOf("-") >= 1 || edit.getText().lastIndexOf("+") >= 1 || edit.getText().lastIndexOf("*") >= 1 || edit.getText().lastIndexOf("/") >= 1) && (edit.getText().charAt(ultimo) != '-' && edit.getText().charAt(ultimo) != '+' && edit.getText().charAt(ultimo) != '*' && edit.getText().charAt(ultimo) != '/' && edit.getText().charAt(ultimo) != ',')) {
 				AcaoBotaoIgual acao = new AcaoBotaoIgual(edit);
 				acao.separaNumeros();
 				edit.setText(edit.getText() + "/");
-			} else if(edit.getText().indexOf("/") < 0) {
+			} else if(edit.getText().indexOf("/") < 0 && edit.getText().length() < 9 && edit.getText().charAt(ultimo) != ',') {
 				edit.setText(edit.getText() + "/");
 			} else {
 				edit.setText(edit.getText());
@@ -100,7 +100,7 @@ public class AcaoBotoes {
 		public void actionPerformed(ActionEvent e) {
 			if(edit.getText().equals("0")) {
 				edit.setText("4");
-			} else {
+			} else if(edit.getText().length() < 9){
 				edit.setText(edit.getText() + "4");
 			}
 		}
@@ -117,7 +117,7 @@ public class AcaoBotoes {
 		public void actionPerformed(ActionEvent e) {
 			if(edit.getText().equals("0")) {
 				edit.setText("5");
-			} else {
+			} else if(edit.getText().length() < 9) {
 				edit.setText(edit.getText() + "5");
 			}
 		}
@@ -134,7 +134,7 @@ public class AcaoBotoes {
 		public void actionPerformed(ActionEvent e) {
 			if(edit.getText().equals("0")) {
 				edit.setText("6");
-			} else {
+			} else if(edit.getText().length() < 9) {
 				edit.setText(edit.getText() + "6");
 			}
 		}
@@ -151,13 +151,12 @@ public class AcaoBotoes {
 		public void actionPerformed(ActionEvent e) {
 			int ultimo = edit.getText().length()-1;
 			
-			if((edit.getText().lastIndexOf("-") >= 1 || edit.getText().lastIndexOf("+") >= 1 || edit.getText().lastIndexOf("*") >= 1 || edit.getText().lastIndexOf("/") >= 1) && (edit.getText().charAt(ultimo) != '-' && edit.getText().charAt(ultimo) != '+' && edit.getText().charAt(ultimo) != '*' && edit.getText().charAt(ultimo) != '/')) {
+			if((edit.getText().lastIndexOf("-") >= 1 || edit.getText().lastIndexOf("+") >= 1 || edit.getText().lastIndexOf("*") >= 1 || edit.getText().lastIndexOf("/") >= 1) && (edit.getText().charAt(ultimo) != '-' && edit.getText().charAt(ultimo) != '+' && edit.getText().charAt(ultimo) != '*' && edit.getText().charAt(ultimo) != '/' && edit.getText().charAt(ultimo) != ',')) {
 				AcaoBotaoIgual acao = new AcaoBotaoIgual(edit);
 				acao.separaNumeros();
 				edit.setText(edit.getText() + "*");
-			} else if(edit.getText().indexOf("*") < 0) {
+			} else if(edit.getText().indexOf("*") < 0 && edit.getText().length() < 9 && edit.getText().charAt(ultimo) != ',') {
 				edit.setText(edit.getText() + "*");
-				System.out.println(edit.getText().indexOf("*"));
 			} else {
 				edit.setText(edit.getText());
 			}
@@ -175,7 +174,7 @@ public class AcaoBotoes {
 		public void actionPerformed(ActionEvent e) {
 			if(edit.getText().equals("0")) {
 				edit.setText("1");
-			} else {
+			} else if(edit.getText().length() < 9) {
 				edit.setText(edit.getText() + "1");
 			}
 		}
@@ -192,7 +191,7 @@ public class AcaoBotoes {
 		public void actionPerformed(ActionEvent e) {
 			if(edit.getText().equals("0")) {
 				edit.setText("2");
-			} else {
+			} else if(edit.getText().length() < 9) {
 				edit.setText(edit.getText() + "2");
 			}
 		}
@@ -209,7 +208,7 @@ public class AcaoBotoes {
 		public void actionPerformed(ActionEvent e) {
 			if(edit.getText().equals("0")) {
 				edit.setText("3");
-			} else {
+			} else if(edit.getText().length() < 9) {
 				edit.setText(edit.getText() + "3");
 			}
 		}
@@ -233,7 +232,7 @@ public class AcaoBotoes {
 				}
 			}
 			
-			if((edit.getText().lastIndexOf("-") >= 1 || edit.getText().lastIndexOf("+") >= 1 || edit.getText().lastIndexOf("*") >= 1 || edit.getText().lastIndexOf("/") >= 1) && (edit.getText().charAt(ultimo) != '-' && edit.getText().charAt(ultimo) != '+' && edit.getText().charAt(ultimo) != '*' && edit.getText().charAt(ultimo) != '/')) {
+			if((edit.getText().lastIndexOf("-") >= 1 || edit.getText().lastIndexOf("+") >= 1 || edit.getText().lastIndexOf("*") >= 1 || edit.getText().lastIndexOf("/") >= 1) && (edit.getText().charAt(ultimo) != '-' && edit.getText().charAt(ultimo) != '+' && edit.getText().charAt(ultimo) != '*' && edit.getText().charAt(ultimo) != '/' && edit.getText().charAt(ultimo) != ',')) {
 				AcaoBotaoIgual acao = new AcaoBotaoIgual(edit);
 				acao.separaNumeros();
 				edit.setText(edit.getText() + "-");
@@ -243,9 +242,9 @@ public class AcaoBotoes {
 				edit.setText(edit.getText());
 			} else if(edit.getText().length() == 1 && edit.getText().charAt(0) != '-' && !edit.getText().equals("+") && !edit.getText().equals("*") && !edit.getText().equals("/")) {
 				edit.setText(edit.getText() + "-");
-			} else if(edit.getText().length() > 1 && edit.getText().charAt(0) == '-' && contador < 2 && edit.getText().indexOf("+") < 0 && edit.getText().indexOf("*") < 0 && edit.getText().indexOf("/") < 0) {
+			} else if(edit.getText().length() > 1 && edit.getText().charAt(0) == '-' && contador < 2 && edit.getText().indexOf("+") < 0 && edit.getText().indexOf("*") < 0 && edit.getText().indexOf("/") < 0 && edit.getText().length() < 9 && edit.getText().charAt(ultimo) != ',') {
 				edit.setText(edit.getText() + "-");
-			} else if(edit.getText().length() > 1 && edit.getText().charAt(0) != '-' && contador == 0 && edit.getText().indexOf("+") < 0 && edit.getText().indexOf("*") < 0 && edit.getText().indexOf("/") < 0) {
+			} else if(edit.getText().length() > 1 && edit.getText().charAt(0) != '-' && contador == 0 && edit.getText().indexOf("+") < 0 && edit.getText().indexOf("*") < 0 && edit.getText().indexOf("/") < 0 && edit.getText().length() < 9 && edit.getText().charAt(ultimo) != ',') {
 				edit.setText(edit.getText() + "-");
 			} else {
 				edit.setText(edit.getText());
@@ -266,7 +265,7 @@ public class AcaoBotoes {
 		public void actionPerformed(ActionEvent e) {
 			if(edit.getText().equals("0")) {
 				edit.setText("0,");
-			} else {
+			} else if(edit.getText().length() < 9) {
 				edit.setText(edit.getText() + "0");
 			}
 		}
@@ -295,17 +294,17 @@ public class AcaoBotoes {
 				edit.setText(edit.getText() + "0,");
 			} else if(edit.getText().equals("0")) {
 				edit.setText(edit.getText() + ",");
-			} else if(contador == 0 && edit.getText().charAt(edit.getText().length()-1) != '-' && edit.getText().charAt(edit.getText().length()-1) != '+' && edit.getText().charAt(edit.getText().length()-1) != '*' && edit.getText().charAt(edit.getText().length()-1) != '/') {
+			} else if(contador == 0 && edit.getText().charAt(edit.getText().length()-1) != '-' && edit.getText().charAt(edit.getText().length()-1) != '+' && edit.getText().charAt(edit.getText().length()-1) != '*' && edit.getText().charAt(edit.getText().length()-1) != '/' && edit.getText().length() < 9) {
 				edit.setText(edit.getText() + ",");
 			} else if(contador == 1 && edit.getText().lastIndexOf("-") <= 0 && edit.getText().lastIndexOf("+") < 0 &&  edit.getText().lastIndexOf("*") < 0 && edit.getText().lastIndexOf("/") < 0) {
 				edit.setText(edit.getText());
-			} else if(contador == 1 && edit.getText().lastIndexOf("-") > 0 && edit.getText().charAt(edit.getText().length()-1) != '-') {
+			} else if(contador == 1 && edit.getText().lastIndexOf("-") > 0 && edit.getText().charAt(edit.getText().length()-1) != '-' && edit.getText().length() < 9) {
 				edit.setText(edit.getText() + ",");
-			} else if(contador == 1 && edit.getText().lastIndexOf("+") > 0 && edit.getText().charAt(edit.getText().length()-1) != '+') {
+			} else if(contador == 1 && edit.getText().lastIndexOf("+") > 0 && edit.getText().charAt(edit.getText().length()-1) != '+' && edit.getText().length() < 9) {
 				edit.setText(edit.getText() + ",");
-			} else if(contador == 1 && edit.getText().lastIndexOf("*") > 0 && edit.getText().charAt(edit.getText().length()-1) != '*') {
+			} else if(contador == 1 && edit.getText().lastIndexOf("*") > 0 && edit.getText().charAt(edit.getText().length()-1) != '*' && edit.getText().length() < 9) {
 				edit.setText(edit.getText() + ",");
-			} else if(contador == 1 && edit.getText().lastIndexOf("/") > 0 && edit.getText().charAt(edit.getText().length()-1) != '/') {
+			} else if(contador == 1 && edit.getText().lastIndexOf("/") > 0 && edit.getText().charAt(edit.getText().length()-1) != '/' && edit.getText().length() < 9) {
 				edit.setText(edit.getText() + ",");
 			}
 		}
@@ -336,9 +335,9 @@ public class AcaoBotoes {
 				edit.setText(edit.getText() + "+");
 			} else if(edit.getText().equals("0")) {
 				edit.setText(edit.getText() + "+");
-			} else if(contadorSoma < 1 && edit.getText().charAt(0) == '-' && contadorSub == 1 && edit.getText().length() > 1) {
+			} else if(contadorSoma < 1 && edit.getText().charAt(0) == '-' && contadorSub == 1 && edit.getText().length() > 1 && edit.getText().length() < 9 && edit.getText().charAt(ultimo) != ',') {
 				edit.setText(edit.getText() + "+");
-			} else if(contadorSoma < 1 && contadorSub < 1) {
+			} else if(contadorSoma < 1 && contadorSub < 1 && edit.getText().length() < 9 && edit.getText().charAt(ultimo) != ',') {
 				edit.setText(edit.getText() + "+");
 			} else {
 				edit.setText(edit.getText());
