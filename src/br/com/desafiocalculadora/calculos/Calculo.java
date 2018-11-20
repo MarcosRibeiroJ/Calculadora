@@ -8,6 +8,7 @@ package br.com.desafiocalculadora.calculos;
  */
 
 public class Calculo {
+	@SuppressWarnings("unused")
 	private String texto1, texto2;
 	private double num1, num2;
 	
@@ -22,21 +23,39 @@ public class Calculo {
 	}
 	
 	public String soma() {
-		return Double.toString((num1+num2)).replace(".", ",");
+		if((num1+num2)-(int)(num1+num2) == 0) {
+			int total = (int)(num1+num2);
+			return Integer.toString(total);
+		} else {
+			return Double.toString((num1+num2)).replace(".", ",");
+		}
 	}
 	
 	public String sub() {
-		return Double.toString((num1-num2)).replace(".", ",");
+		if((num1-num2)-(int)(num1-num2) == 0) {
+			int total = (int)(num1-num2);
+			return Integer.toString(total);
+		} else {
+			return Double.toString((num1-num2)).replace(".", ",");
+		}
 	}
 	
 	public String mult() {
-		return Double.toString((num1*num2)).replace(".", ",");
+		if((num1*num2)-(int)(num1*num2) == 0) {
+			int total = (int)(num1*num2);
+			return Integer.toString(total);
+		} else {
+			return Double.toString((num1*num2)).replace(".", ",");
+		}
 	}
 	
 	public String div() {
 		if(num2 == 0) {
 			return "Impossível";
-		} else {
+		} else if((num1/num2)-(int)(num1/num2) == 0) {
+			int total = (int)(num1/num2);
+			return Integer.toString(total);
+		}else {
 			return Double.toString((num1/num2)).replace(".", ",");
 		}
 	}

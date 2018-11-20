@@ -66,6 +66,8 @@ public class AcaoTeclado implements KeyListener {
 			formataSub();
 		} else if(aux == 0 && e.getKeyCode() == 44 || e.getKeyCode() == 110 || e.getExtendedKeyCode() == 46) {
 			formataVirgula();
+		} else if(aux == 0 && e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_EQUALS) {
+			formataIgual();
 		}
 	}
 
@@ -250,6 +252,12 @@ public class AcaoTeclado implements KeyListener {
 		} else {
 			edit.setText(edit.getText());
 		}
+	}
+	
+	public void formataIgual() {
+		//preferi reaproveitar o metodo criado na classe Acao botoes do que repeti-lo aqui
+		AcaoBotoes.AcaoBotaoIgual acao = new AcaoBotoes().new AcaoBotaoIgual(this.edit);
+		acao.separaNumeros();
 	}
 
 }
